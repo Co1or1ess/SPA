@@ -7,7 +7,7 @@ $primaryColorDark: color.scale($primaryColor, $lightness: -15%);
 $secondaryColor: #ff914d;
 $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
 
-@import "../../node_modules/bulma/bulma";
+@import "../../node_modules/bulma/versions/bulma-no-dark-mode";
 
 // custom styles
 :root {
