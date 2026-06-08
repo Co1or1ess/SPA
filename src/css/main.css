@@ -22789,16 +22789,16 @@ has-background-danger.is-hoverable:active {
 }
 
 .app-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  font-size: clamp(1.6rem, 3.2vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
   font-weight: 800;
   max-width: 760px;
   margin-bottom: 0.5rem;
 }
 
 .app-line {
-  width: 96px;
+  width: 76px;
   height: 3px;
   border-radius: 999px;
   background: var(--orange);
@@ -22812,6 +22812,92 @@ has-background-danger.is-hoverable:active {
   line-height: 1.6;
   max-width: 760px;
   margin-bottom: 2.5rem;
+}
+
+.image-count-tag {
+  cursor: pointer;
+  text-align: center;
+  color: white;
+  border-radius: 999px;
+}
+.image-count-tag:hover {
+  background-color: rgb(36.55, 146.2, 97.75);
+}
+
+#imageModal .modal-card {
+  width: 640px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+#imageModal .modal-card-head {
+  padding: 1.2rem 1.5rem;
+}
+#imageModal .modal-card-body {
+  padding: 1.5rem;
+}
+#imageModal #slideshowImage {
+  max-height: 52vh;
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.zoomable-image {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+  transform-origin: center center;
+  user-select: none;
+}
+
+#fullscreenBtn {
+  border: none;
+}
+
+.map-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+#svg-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateX(-4%);
+}
+#svg-container svg path {
+  fill: #2bac73;
+  stroke: #fff;
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+#svg-container svg path:hover {
+  fill: #ff914d;
+}
+
+.app-overview-text {
+  height: 100%;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.app-txt {
+  font-size: clamp(0.8rem, 0.6vw + 0.55rem, 0.95rem);
+  line-height: 1.75;
+  color: var(--text-main);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.app-overview-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-overview-text::-webkit-scrollbar-thumb {
+  background: #9ca3af;
+  border-radius: 999px;
 }
 
 /* =========================
@@ -22888,9 +22974,8 @@ has-background-danger.is-hoverable:active {
     margin-bottom: 0.75rem;
   }
   .app-title {
-    font-size: 2rem;
+    font-size: 1.65rem;
     line-height: 1.15;
-    letter-spacing: -0.03em;
   }
   .app-subtitle {
     font-size: 1rem;
@@ -22906,7 +22991,7 @@ has-background-danger.is-hoverable:active {
 ========================= */
 @media screen and (max-width: 480px) {
   .app-title {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
   }
   .app-subtitle {
     font-size: 0.95rem;
