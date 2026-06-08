@@ -8,6 +8,7 @@ $secondaryColor: #ff914d;
 $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
 
 :root {
+  color-scheme: light;
   --border: #ececf2;
   --sidebar-width: clamp(280px, 22vw, 340px); // Sidebar-ийн өргөн (280px-340px хооронд, дэлгэцийн 22%-ийг эзэлнэ)
   --sidebar-bg: #ffffff;
@@ -22,7 +23,7 @@ $secondaryColorDark: color.scale($secondaryColor, $lightness: -15%);
   --overlay: rgba(15, 23, 42, 0.55);
 }
 
-@import "../../node_modules/bulma/bulma";
+@import "../../node_modules/bulma/versions/bulma-no-dark-mode";
 
 @import "./components/buttons";
 @import "./components/navbar";
