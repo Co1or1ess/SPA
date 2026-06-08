@@ -1,13 +1,21 @@
 [
   {
     "food_code": "01_0106",
-    "food_group": "Cereals and Cereal products",
-    "food_name": "Barley flour, whole grain",
+    "food_group": {
+      "en": "Cereals and Cereal products",
+      "mn": "Үр тариа ба үр тариан бүтээгдэхүүн"
+    },
+    "food_name": {
+      "en": "Barley flour, whole grain",
+      "mn": "Арвайн эслэгт гурил"
+    },
     "scientific_name": "Hordeum vulgare",
-    "native_name": "Арвайн эслэгт гурил",
-    "province": "Uvs",
+    "province": {
+      "en": "Uvs",
+      "mn": "Увс"
+    },
     "proximates": {
-      "Energy (kcal)": 358.0,
+      "Energy (kcal)": 358,
       "Water (g)": 9.7,
       "Protein (g)": 12.05,
       "Fat (g)": 0.55,
@@ -15,129 +23,56 @@
       "Carbohydrate (g)": 76.13
     },
     "minerals": {
-      "Calcium (mg)": 100.0,
+      "Calcium (mg)": 100,
       "Iron (mg)": 18.7,
-      "Phosphorus (mg)": 24.0,
-      "Potassium (mg)": 7.0,
-      "Sodium (mg)": 2.0
+      "Phosphorus (mg)": 24,
+      "Potassium (mg)": 7,
+      "Sodium (mg)": 2
     },
     "vitamins": {
-      "Vitamin A (μg)": 1.0,
+      "Vitamin A (μg)": 1,
       "Thiamin (mg)": 0.28,
       "Riboflavin (mg)": 0.11,
       "Vitamin C (mg)": 22.95,
       "Refuse (%)": 0.0
     },
     "collection_information": {
-      "Collection area": "Uvs province, Uvs food JSC",
+      "Collection area": {
+        "en": "Uvs province, Uvs food JSC",
+        "mn": "Увс аймаг, Увс хүнс ХХК"
+      },
       "Collection date": "05.10.2021",
-      "Basis of sample selection": "Culture and customs",
-      "Additional collection information": "Product name: Fiber barley  flour"
+      "Basis of sample selection": {
+        "en": "Culture and customs",
+        "mn": "Соёл ба зан заншил"
+      },
+      "Additional collection information": {
+        "en": "Product name: Fiber barley  flour",
+        "mn": "Бүтээгдэхүүний нэр: Эслэгтэй арвайн гурил"
+      }
     },
     "edible_inedible_part": {
       "Weight of whole part (g/1 piece)": "1000",
       "Weight of edible part (g/1 piece)": "1000",
-      "Inedible part (discarded part)": null,
+      "Inedible part (discarded part)": {
+        "en": "",
+        "mn": ""
+      },
       "Weight of inedible part (g/1 piece)": null
     },
     "pretreatment_conditions": {
-      "Cooking (processing) method": null,
-      "Other cooking (processing) conditions": null,
-      "Reference for condition setting": null
-    }
-  },
-  {
-    "food_code": "01_0105",
-    "food_group": "Cereals and Cereal products",
-    "food_name": "Barley flour, whole grain, pearled",
-    "scientific_name": "Hordeum vulgare",
-    "native_name": "Халтар арвайн гурил",
-    "province": "Khuvsgul",
-    "proximates": {
-      "Energy (kcal)": 368.0,
-      "Water (g)": 7.7,
-      "Protein (g)": 12.67,
-      "Fat (g)": 1.32,
-      "Ash (g)": 1.9,
-      "Carbohydrate (g)": 76.4
-    },
-    "minerals": {
-      "Calcium (mg)": 99.0,
-      "Iron (mg)": 27.32,
-      "Phosphorus (mg)": 28.0,
-      "Potassium (mg)": 5.0,
-      "Sodium (mg)": 4.0
-    },
-    "vitamins": {
-      "Vitamin A (μg)": 1.0,
-      "Thiamin (mg)": 0.421,
-      "Riboflavin (mg)": 0.128,
-      "Vitamin C (mg)": 15.57,
-      "Refuse (%)": 0.0
-    },
-    "collection_information": {
-      "Collection area": "Khuvsgul province, Altan duulga JSC",
-      "Collection date": "25.11.2021",
-      "Basis of sample selection": "Culture and customs",
-      "Additional collection information": "Product name: Pearled barley flour,  Rousted barley flour"
-    },
-    "edible_inedible_part": {
-      "Weight of whole part (g/1 piece)": "1000",
-      "Weight of edible part (g/1 piece)": "1000",
-      "Inedible part (discarded part)": null,
-      "Weight of inedible part (g/1 piece)": null
-    },
-    "pretreatment_conditions": {
-      "Cooking (processing) method": null,
-      "Other cooking (processing) conditions": null,
-      "Reference for condition setting": null
-    }
-  },
-  {
-    "food_code": "01_0003",
-    "food_group": "Cereals and Cereal products",
-    "food_name": "Barley, whole grain, pearled, raw",
-    "scientific_name": "Hordeum vulgare",
-    "native_name": "Халтар арвай",
-    "province": "Khuvsgul",
-    "proximates": {
-      "Energy (kcal)": 340.0,
-      "Water (g)": 14.7,
-      "Protein (g)": 12.63,
-      "Fat (g)": 1.41,
-      "Ash (g)": 1.95,
-      "Carbohydrate (g)": 69.32
-    },
-    "minerals": {
-      "Calcium (mg)": 100.0,
-      "Iron (mg)": 18.6,
-      "Phosphorus (mg)": 20.0,
-      "Potassium (mg)": 10.0,
-      "Sodium (mg)": 5.0
-    },
-    "vitamins": {
-      "Vitamin A (μg)": 0.0,
-      "Thiamin (mg)": 0.49,
-      "Riboflavin (mg)": 0.111,
-      "Vitamin C (mg)": 15.57,
-      "Refuse (%)": 0.0
-    },
-    "collection_information": {
-      "Collection area": "Khuvsgul province, Altan duulga JSC",
-      "Collection date": "2021.11.25",
-      "Basis of sample selection": "Culture and customs",
-      "Additional collection information": null
-    },
-    "edible_inedible_part": {
-      "Weight of whole part (g/1 piece)": "0.038",
-      "Weight of edible part (g/1 piece)": "0.038",
-      "Inedible part (discarded part)": null,
-      "Weight of inedible part (g/1 piece)": null
-    },
-    "pretreatment_conditions": {
-      "Cooking (processing) method": null,
-      "Other cooking (processing) conditions": null,
-      "Reference for condition setting": null
+      "Cooking (processing) method": {
+        "en": "",
+        "mn": ""
+      },
+      "Other cooking (processing) conditions": {
+        "en": "",
+        "mn": ""
+      },
+      "Reference for condition setting": {
+        "en": "",
+        "mn": ""
+      }
     }
   },
   {
