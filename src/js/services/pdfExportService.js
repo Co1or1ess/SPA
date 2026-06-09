@@ -1,20 +1,17 @@
-// 🇲🇳 Сонгосон хоолнуудыг PDF болгон хэвлэх сервис
-// 🇲🇳 Хэрэглэгч сонгосон багана болон хоолнуудыг хэвлэхэд бэлэн PDF үүсгэнэ
-
 /**
  * Сонгосон хүснэгтийг PDF болгон хэвлэх
- * @param {string} tableId - Хүснэгтийн DOM id
+ * @param {string} tableId - Хүснэгтийн id
  * @param {string} title - PDF гарчиг
  */
 export function exportTableToPDF(tableId, title = '') {
-    // 🇲🇳 Одоо дэлгэцэнд байгаа хүснэгтийг авна
+    // Одоо дэлгэцэнд байгаа хүснэгтийг авна
     const table = document.getElementById(tableId);
     if (!table) {
         console.error('Хүснэгт олдсонгүй');
         return false;
     }
 
-    // 🇲🇳 Хэвлэх зориулалттай шинэ document үүсгэнэ
+    // Хэвлэх шинэ PDF үүсгэнэ
     const printWindow = window.open('', '_blank');
     
     printWindow.document.write(`
@@ -98,14 +95,14 @@ export function exportTableToPDF(tableId, title = '') {
                     size: A4 landscape;
                     margin: 15mm;
                     
-                    /* 🇲🇳 about:blank гарчиг хөлсийг устгах */
+                    /* about:blank гарчиг хөлсийг устгах */
                     @top-left { content: ''; }
                     @top-right { content: ''; }
                     @bottom-left { content: ''; }
                     @bottom-right { content: ''; }
                 }
                 
-                /* 🇲🇳 Браузер автоматаар нэмэх гарчиг хөлсийг бүрэн устгах */
+                /* Браузер автоматаар нэмэх гарчиг хөлсийг бүрэн устгах */
                 html, body {
                     width: 297mm;
                     height: 210mm;
@@ -128,7 +125,7 @@ export function exportTableToPDF(tableId, title = '') {
 
     printWindow.document.close();
     
-    // 🇲🇳 Бүх зүйл ачаалагдсаны дараа хэвлэх цонхыг нээнэ
+    // Хэвлэх цонхыг нээнэ
     printWindow.onload = function() {
         printWindow.focus();
         printWindow.print();
@@ -137,18 +134,11 @@ export function exportTableToPDF(tableId, title = '') {
     return true;
 }
 
-/**
- * Одоо харагдаж байгаа бүх үр дүнг экспортлох
- */
 export function exportCurrentSearchResults() {
     return exportTableToPDF('resultTbl', 'Хүнсний хайлтын үр дүн');
 }
 
-/**
- * Сонгосон хоолнуудыг зөвхөн экспортлох
- */
 export function exportSelectedFoods() {
-    // 🇲🇳 Сонгосон мөрүүдийг ялгаж авна
     const selectedRows = document.querySelectorAll('#resultTbl tr.selected');
     
     if (selectedRows.length === 0) {
@@ -156,7 +146,7 @@ export function exportSelectedFoods() {
         return false;
     }
 
-    // 🇲🇳 Зөвхөн сонгосон мөрүүдтэй шинэ хүснэгт үүсгэнэ
+    // Зөвхөн сонгосон мөрүүдтэй шинэ хүснэгт үүсгэнэ
     const table = document.getElementById('resultTbl').cloneNode(true);
     const tbody = table.querySelector('tbody');
     
@@ -167,7 +157,7 @@ export function exportSelectedFoods() {
         });
     }
 
-    // 🇲🇳 Энэ хүснэгтийг PDF болгон экспортлох
+    // Хүснэгтийг PDF болгон экспортлох
     const printWindow = window.open('', '_blank');
     
     printWindow.document.write(`

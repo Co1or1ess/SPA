@@ -109,7 +109,34 @@ function renderTableByType(type, items) {
         ] */
 
   const columns = [
-    { key: "food_name", label: t("table.foodName") },
+    { 
+      key: "food_name", 
+      label: t("table.foodName"),
+      render: (item) => {
+        const images = getImagesByFoodCode(item.food_code);
+        const hasImage = images.length > 0;
+        
+        return `
+          <div class="is-flex is-align-items-center is-gap-2">
+            ${hasImage ? `
+              <img 
+                src="${escapeHtml(images[0])}" 
+                class="food-thumbnail open-image-btn"
+                data-foodcode="${escapeHtml(item.food_code)}"
+                data-foodname="${escapeHtml(getLocalizedValue(item.food_name))}"
+                alt="${escapeHtml(getLocalizedValue(item.food_name))}"
+                loading="lazy"
+              >
+            ` : `
+              <div class="food-thumbnail food-thumbnail-empty">
+                <i class="fas fa-image"></i>
+              </div>
+            `}
+            <span>${getLocalizedValue(item.food_name)}</span>
+          </div>
+        `;
+      }
+    },
 
     ...nutrientKeys.map((key) => ({
       key,
@@ -145,6 +172,7 @@ function renderTableByType(type, items) {
     }
 
     return {
+      food_code: item.food_code,
       food_name: getLocalizedValue(item.food_name),
       ...rowData,
     };
@@ -153,7 +181,7 @@ function renderTableByType(type, items) {
   return renderTable({
     title: t(`sidebar.${type}`) !== `sidebar.${type}` ? t(`sidebar.${type}`) : titleFromKey(type),
     columns,
-    rows,
+    rows
   });
 }
 
