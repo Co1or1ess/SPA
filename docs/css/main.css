@@ -21036,6 +21036,41 @@ has-background-danger.is-hoverable:active {
   color: #2bac73;
 }
 
+.food-thumbnail {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.food-thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.food-thumbnail.food-thumbnail-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #aaa;
+  font-size: 14px;
+  cursor: default;
+}
+.food-thumbnail.food-thumbnail-empty:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* 🇲🇳 Хэвлэх болон экспортлох үед зургийг нуух */
+@media print {
+  .food-thumbnail {
+    display: none !important;
+  }
+}
 /* =========================
    DESKTOP (>=769px)
 ========================= */

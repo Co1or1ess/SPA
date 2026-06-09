@@ -49,8 +49,9 @@ export function mountFooter(root) {
                 <ul>
                   <li><i class="fas fa-university fa-fw" style="margin-right: 6px;"></i> ${t("footer.university")}</li>
                   <li><i class="fas fa-map-marker-alt fa-fw" style="margin-right: 6px;"></i> ${t("footer.address")}</li>
-                  <li><i class="fas fa-phone fa-fw" style="margin-right: 6px;"></i> ${t("footer.phone")}: (+976)-89075531</li>
+                  <li><i class="fas fa-phone fa-fw" style="margin-right: 6px;"></i> ${t("footer.phone")}: (+976)-89075531, (+976)-80204826</li>
                   <li><i class="fas fa-envelope fa-fw" style="margin-right: 6px;"></i> ${t("footer.email")}: <a class="custom-link" href="mailto:orgilid@muls.edu.mn">orgilid@muls.edu.mn</a></li>
+                  <li><i class="fas fa-envelope fa-fw" style="margin-right: 6px;"></i> ${t("footer.email")}: <a class="custom-link" href="mailto:isa2571022@muls.edu.mn">isa2571022@muls.edu.mn</a></li>
                 </ul>
             </div>
           </div>

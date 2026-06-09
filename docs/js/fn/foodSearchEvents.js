@@ -87,9 +87,25 @@ export function buildFoodGroups(data) {
 */
 
 let nutritionData = [];
+let sortColumn = null;
+let sortDirection = 'asc';
 
 export function initNutritionData(data) {
   nutritionData = data;
+}
+
+// Баганаар эрэмбэлэх функц
+export function handleColumnSort(columnKey, type) {
+  if (sortColumn === columnKey) {
+    // Хэрэв ижил баганад дахин дарвал чиглэлийг солино
+    sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+  } else {
+    // Шинэ багана дарвал ascending-оос эхлэнэ
+    sortColumn = columnKey;
+    sortDirection = 'asc';
+  }
+  
+  renderCurrentResults();
 }
 
 // const DEFAULT_TYPES = ["proximates", "minerals", "vitamins"];
@@ -133,6 +149,25 @@ export function bindSearchEvents() {
       rerenderCurrentSelection();
     }
   });
+
+  // Баганаар эрэмбэлэх товчлуурын event
+  searchRoot.addEventListener("click", (event) => {
+    const th = event.target.closest('th[data-sortkey]');
+    if (th) {
+      const sortKey = th.dataset.sortkey;
+      
+      // Хэрэв ижил багана бол чиглэлийг солино
+      if (sortColumn === sortKey) {
+        sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+      } else {
+        // Шинэ багана бол descending эхлэнэ (хамгийн их → хамгийн бага)
+        sortColumn = sortKey;
+        sortDirection = 'desc';
+      }
+      
+      renderCurrentResults();
+    }
+  });
 }
 
 // Текст бичиж food_name-ээр хайх функц
@@ -170,10 +205,36 @@ function rerenderCurrentSelection() {
   renderCurrentResults();
 }
 
-// Хүнсний жагсаалтаас сонгосон checkbox-уудын food_code болон input-ээс авсан keyword хоёроор nutritionData-ыг шүүж харуулна. Хэрэв хоёулаа хоосон бол эхний 4 элементийг харуулна.
+// Хүнсний жагсаалтаас сонгосон checkbox-уудын food_code болон input-ээс авсан keyword хоёроор nutritionData-ыг шүүж харуулна. 
 function renderCurrentResults() {
-  const matched = getMatchedItems();
+  let matched = getMatchedItems();
   const selectedTypes = getSelectedNutritionTypes();
+  
+  // Хэрэв эрэмбэлэх багана сонгогдсон бол эрэмбэлнэ
+  if (sortColumn && matched.length > 0) {
+    matched = [...matched].sort((a, b) => {
+      // Хоолны нэрээр эрэмбэлэх
+      if (sortColumn === 'food_name') {
+        const valA = getLocalizedValue(a.food_name);
+        const valB = getLocalizedValue(b.food_name);
+        return sortDirection === 'asc' 
+          ? valA.localeCompare(valB, 'mn') 
+          : valB.localeCompare(valA, 'mn');
+      }
+      
+      // Бусад тоон утгаар эрэмбэлэх
+      let valA = 0;
+      let valB = 0;
+      
+      selectedTypes.forEach(type => {
+        if (a[type] && a[type][sortColumn] !== undefined) valA = parseFloat(a[type][sortColumn]) || 0;
+        if (b[type] && b[type][sortColumn] !== undefined) valB = parseFloat(b[type][sortColumn]) || 0;
+      });
+      
+      return sortDirection === 'asc' ? valA - valB : valB - valA;
+    });
+  }
+  
   setResultHtml(renderNutritionTables(matched, selectedTypes));
 }
 

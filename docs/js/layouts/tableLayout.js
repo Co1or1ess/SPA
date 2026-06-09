@@ -29,7 +29,15 @@ export function renderTable({
             <table class="${tableClass}">
               <thead>
                 <tr>
-                  ${columns.map((col) => `<th class="${col.thClass || ""}">${safeValue(col.label)}</th>`).join("")}
+                  ${columns.map((col) => `
+                    <th 
+                      class="${col.thClass || ""} ${col.sortable !== false ? 'sortable-header' : ''}"
+                      ${col.sortable !== false ? `data-sortkey="${col.key}"` : ''}
+                      style="cursor: pointer;"
+                    >
+                      ${safeValue(col.label)}
+                    </th>
+                  `).join("")}
                 </tr>
               </thead>
 
