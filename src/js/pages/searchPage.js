@@ -19,6 +19,7 @@ import { renderFoodGroupList } from "../components/searchFoodGroupListSidebar.js
 
 import { loadImages } from "../services/imageService.js";
 import { renderImageModal, bindImageModalEvents } from "../components/imageModal.js";
+import { exportCurrentSearchResults, exportSelectedFoods } from "../services/pdfExportService.js";
 
 import { t } from "../i18n/i18n.js";
 
@@ -41,8 +42,15 @@ export async function renderSearchPage() {
       renderSidebarPageLayout({
         sidebarContent: `${renderSearchFoodName()} ${renderSearchSettings()} ${renderFoodGroupList(groupedFoods)}`,
         pageId: "search",
-        pageTitle: t("searchPage.title"),
+         pageTitle: t("search.title"),
         mainContent: `
+      <div class="mb-4 is-flex is-justify-content-flex-end">
+        <button id="exportAllPdf" class="button is-primary">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span>
+          <span>PDF-р экспортлох</span>
+        </button>
+      </div>
+      
       <div id="resultTbl">
         ${renderDefaultTables(nutritionData)}
       </div>
@@ -52,6 +60,9 @@ export async function renderSearchPage() {
     bindSidebar();
     bindMenuListToggle();
     bindSearchEvents();
+    
+    // 🇲🇳 PDF экспорт товчлуурын үйлдлийг бэхлэх
+    document.getElementById('exportAllPdf').addEventListener('click', exportCurrentSearchResults);
 
     if (!imageModalBound) {
       bindImageModalEvents();
